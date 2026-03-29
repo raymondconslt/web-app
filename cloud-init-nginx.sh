@@ -1,7 +1,6 @@
 #!/bin/bash
 set -euxo pipefail
 
-dnf -y update
 dnf -y install nginx
 systemctl enable nginx
 systemctl start nginx
@@ -13,6 +12,7 @@ if command -v firewall-cmd >/dev/null 2>&1; then
 fi
 
 # Keep a simple health endpoint for quick checks
-cat >/var/www/html/healthz <<'HEALTH'
+mkdir -p /usr/share/nginx/html
+cat >/usr/share/nginx/html/healthz <<'HEALTH'
 ok
 HEALTH
