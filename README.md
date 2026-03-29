@@ -81,4 +81,3 @@ After `nginx -t` + reload, I verified:
 - `/simple-web-app/` → HTTP 200
 
 That confirms both apps are independently reachable via path routing on the same VM/IP.
-
